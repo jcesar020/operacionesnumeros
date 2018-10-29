@@ -1,5 +1,6 @@
 package com.example.jcesar.parcial3;
 
+import android.content.Intent;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,9 +40,6 @@ public class OperacionActivity extends AppCompatActivity {
         tvNumero1.setText( "Numero 1: "  + numero1.toString() );
         tvNumero2.setText( "Numero 2: "  + numero2.toString() );
 
-
-
-
     }
 
     public void procesar(View v){
@@ -66,10 +64,20 @@ public class OperacionActivity extends AppCompatActivity {
 
         } else {
             Toast.makeText(this, "Debe seleccionar una operacion", Toast.LENGTH_LONG).show();
+
         }
 
-        Toast.makeText(this, "El resultado es: " + resultado.toString(), Toast.LENGTH_LONG).show();
-        finish();
+
+        if(!operacionSelecionada.equals("")){
+            Intent resultIntent = new Intent();
+
+            resultIntent.putExtra("operacion", operacionSelecionada);
+            resultIntent.putExtra("resultado", resultado.toString());
+
+            setResult(RESULT_OK, resultIntent);
+            finish();
+        }
+
     }
 
 

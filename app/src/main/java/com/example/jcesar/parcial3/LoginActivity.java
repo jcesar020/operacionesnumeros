@@ -32,8 +32,6 @@ public class LoginActivity extends AppCompatActivity {
             //Toast.makeText(this, "Accesso correcto", Toast.LENGTH_LONG).show();
             Intent intent = new Intent( this, NumerosActivity.class);
             startActivity(intent);
-
-
         }else{
             Toast.makeText(this, "Datos incorrectos", Toast.LENGTH_LONG).show();
         }
